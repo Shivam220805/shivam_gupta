@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-dfz+q82s9WT/BckR6G0vqD56W6E/BThRQ8SODvjNddz2Pd6LywE9JOMYqCmkRcdQ" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Gupta's Personal Website</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .btn {
+            max-width: fit-content;
+            font-size: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #3498db, #e74c3c, #2ecc71, #f39c12);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            z-index: -1;
+        }
+        .container {
+      z-index: 1;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 35rem;
+      background-image: linear-gradient(to bottom, rgba(255, 168, 76, 0.6) 0%, rgba(255, 123, 13, 0.6) 100%), url('https://images.unsplash.com/photo-1446824505046-e43605ffb17f');
+      background-blend-mode: soft-light;
+      background-size: cover;
+      background-position: center center;
+      padding: 2rem;
+    }
+
+    .bird {
+      background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+      background-size: auto 100%;
+      width: 88px;
+      height: 125px;
+      will-change: background-position;
+      animation-name: fly-cycle;
+      animation-timing-function: steps(10);
+      animation-iteration-count: infinite;
+    }
+
+    .bird-container {
+      position: absolute;
+      top: 20%;
+      left: -10%;
+      transform: scale(0) translateX(-10vw);
+      will-change: transform;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .bird-1 {
+      background-position: -900px 0;
+      animation-duration: 15s;
+      animation-delay: 0;
+      animation-name: fly-right-one;
+    }
+
+    .bird-2 {
+      background-position: -900px 0;
+      animation-duration: 16s;
+      animation-delay: 1s;
+      animation-name: fly-right-two;
+    }
+
+    .bird-3 {
+      background-position: -900px 0;
+      animation-duration: 14.6s;
+      animation-delay: 9.5s;
+      animation-name: fly-right-three;
+    }
+
+    @keyframes fly-cycle {
+      100% {
+        background-position: -900px 0;
+      }
+    }
+
+    @keyframes fly-right-one {
+      0% {
+        transform: scale(0.3) translateX(-10vw);
+      }
+      10% {
+        transform: translateY(2vh) translateX(10vw) scale(0.4);
+      }
+      20% {
+        transform: translateY(0vh) translateX(30vw) scale(0.5);
+      }
+      30% {
+        transform: translateY(4vh) translateX(50vw) scale(0.6);
+      }
+      40% {
+        transform: translateY(2vh) translateX(70vw) scale(0.6);
+      }
+      50% {
+        transform: translateY(0vh) translateX(90vw) scale(0.6);
+      }
+      60% {
+        transform: translateY(0vh) translateX(110vw) scale(0.6);
+      }
+      100% {
+        transform: translateY(0vh) translateX(110vw) scale(0.6);
+      }
+    }
+
+    @keyframes fly-right-two {
+      0% {
+        transform: translateY(-2vh) translateX(-10vw) scale(0.5);
+      }
+      10% {
+        transform: translateY(0vh) translateX(10vw) scale(0.4);
+      }
+      20% {
+        transform: translateY(-4vh) translateX(30vw) scale(0.6);
+      }
+      30% {
+        transform: translateY(1vh) translateX(50vw) scale(0.45);
+      }
+      40% {
+        transform: translateY(-2.5vh) translateX(70vw) scale(0.5);
+      }
+      50% {
+        transform: translateY(0vh) translateX(90vw) scale(0.45);
+      }
+      51% {
+        transform: translateY(0vh) translateX(110vw) scale(0.45);
+      }
+      100% {
+        transform: translateY(0vh) translateX(110vw) scale(0.45);
+      }
+    }
+
+          
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border: 2px solid black;
+            margin-top: 20px;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 2px solid green;
+            font-weight: bold;
+            font-size: x-large;
+            transition: transform 2s;
+        }
+
+        td:hover {
+            background-color: rgba(255, 255, 0, 0.752);
+            font-weight: bolder;
+            font-size: xx-large;
+        }
+
+        @keyframes centerAnimation {
+            from {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        #education {
+            animation: centerAnimation 2s ease-out;
+        }
+
+        #achievements {
+            animation: centerAnimation 3s ease-out;
+        }
+
+        #skills {
+            animation: centerAnimation 4s ease-out;
+        }
+
+        #blog {
+            animation: centerAnimation 5s ease-out;
+        }
+
+        #contact {
+            animation: centerAnimation 6s ease-out;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        nav {
+            background-color: greenyellow;
+            overflow: hidden;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            width: 100%;
+            font-display: italic;
+            border-bottom: 5px;
+            height: fit-content;
+            padding: 10px;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            font-weight: bolder;
+            font-size: medium;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+            font-size: x-large;
+        }
+
+        .navbar button {
+            float: right;
+            display: block;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .navbar button:hover {
+            background-color: #45a049;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .blog {
+            margin-top: 20px;
+        }
+
+        .like-counter {
+            margin-bottom: 10px;
+        }
+
+        .comments-section {
+            margin-top: 10px;
+        }
+
+        body.dark-mode {
+            background-color: black;
+            color: white;
+            background-image: linear-gradient(to bottom, rgba(195, 76, 255, 0.6) 0%, rgb(255, 207, 13) 100%), url('https://images.unsplash.com/photo-1446824505046-e43605ffb17f');
+            background-blend-mode: soft-light;
+            background-size: cover;
+             background-position: center center;
+             padding: 2rem;
+        }
+
+        body.dark-mode header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        body.dark-mode nav {
+            background-color: rgb(47, 203, 255);
+            overflow: hidden;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            width: 100%;
+            font-display: italic;
+            border-bottom: 5px;
+            height: fit-content;
+            padding: 10px;
+            color: solid black;
+            margin-left:0;
+        }
+
+        body.dark-mode nav a:hover {
+            background-color: solid black;
+            color: rgba(255, 47, 47, 0.972);
+            font-size: x-large;
+        }
+
+        body.dark-mode .navbar button {
+            float: right;
+            display: block;
+            color: pink;
+            background-color: #4CAF50;
+            border: none;
+            padding: 15px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        body.dark-mode table {
+            width: 100%;
+            border: 2px solid blanchedalmond;
+            margin-top: 20px;
+            transform-style: preserve-3d;
+            border-radius: 20px;
+        }
+
+        body.dark-mode th, body.dark-mode td {
+            padding: 10px;
+            text-align: center;
+            border: 2px yellow;
+            font-weight: bold;
+            font-size: x-large;
+            transition: transform 2s;
+        }
+        .social-link {
+         &--linkedin {
+            color: #2d76b0;
+         }
+
+         &--github {
+            color: #000;
+         }
+
+         &--instagram {
+            color: #9a2970;
+         }
+
+         &--dribbble {
+            color: #b53561;
+         }
+
+         & .social-svg {
+            width: 4.8rem;
+            height: 4.8rem;
+         }
+
+         & .social-group__icon {
+            fill: var(--color-black);
+            transition: all 0.2s;
+         }
+
+         & .social-group__inner-circle {
+            fill: transparent;
+            transition: all 0.2s;
+         }
+
+         & .social-group__outline {
+            stroke: var(--color-black);
+            transform-origin: 50% 50%;
+            transition: all 0.2s;
+         }
+
+         &:hover,
+         &:active,
+         &:focus {
+            & .social-group__icon {
+               fill: var(--color-white);
+               transition: all 0.45s;
+            }
+
+            & .social-group__inner-circle {
+               fill: currentColor;
+               transition: all 0.45s;
+
+               &--instagram {
+                  fill: url(#simpleInsta) !important;
+               }
+            }
+
+            & .social-group__outline {
+               stroke: currentColor;
+               transform: scale(1.1);
+               transition: all 0.45s;
+            }
+         }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="font-weight:bolder;"><i>My Personal Website</i></h1>
+        <div class="bird-container bird-1">
+          <div class="bird bird-1"></div>
+        </div>
+        <div class="bird-container bird-2">
+          <div class="bird bird-2"></div>
+        </div>
+        <div class="bird-container bird-3">
+          <div class="bird bird-3"></div>
+        </div>
+      </div>
+<header>
+    <h1>Shivam Gupta</h1>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#skills">Skills</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+    <button style="font-size: 20px; margin: 0; padding: 10px; box-sizing: border-box;" class="btn"
+            onclick="toggleDarkMode();" id="darkModeButton">
+        <i id="darkModeIcon" style="font-size: 24px;">☀️</i> DARK
+    </button>
+</nav>
+
+<section id="about">
+    <br>
+    <br>
+    <h2 style="font-size: xx-large; text-shadow: 2px 2px 5px black;"><i>About Myself</i></h2>
+    <p style="font-weight: bold; font-style: italic; font-size: xx-large;">Hello! I am Shivam Gupta, a 1st year CSE
+        undergraduate student at IIIT Hyderabad. I am an avid reader and learner. I love exploring new things and
+        exploring technology in a new and better way.</p>
+    <img style="border-radius: 0; height: 15rem;" src="myimage.jpeg" alt="Shivam's Profile Image">
+</section>
+
+<section id="education">
+    <br>
+    <br>
+    <h2 style="text-shadow: 2px 2px 5px black; font-size: xx-large;"><i>Education Background</i></h2>
+    <p>
+        <table>
+            <tr>
+                <td style="font-family: fantasy;">Schooling</td>
+                <td style="font-family: cursive"><i>Kundan Vidya Mandir Senior Secondary School</i></td>
+            </tr>
+            <tr>
+                <td style="font-family: fantasy;"><i>JEE Preparation</i></td>
+                <td style="font-family: cursive">Allen Career Institute</td>
+            </tr>
+            <tr>
+                <td style="font-family: fantasy;"><i>College</i></td>
+                <td style="font-family: cursive"><i>IIIT Hyderabad</i></td>
+            </tr>
+        </table>
+    </p>
+</section>
+
+<section id="achievements">
+    <br>
+    <br>
+    <h2 style="font-size: xx-large; text-shadow: 2px 2px 5px black;"><i>Achievements</i></h2>
+    <br>
+    <p style="font-size: x-large"> <i>1. National Level Quizzard</i> <br>
+        <i> 2. Board Percentage- 99.6 (Class 10th) </i><br>
+        <i> 3. Board Percentage- 97 (Class 12th)</i> <br>
+        <i> 4. JEE Mains Rank- 1227 </i> <br>
+        <i>   5. NTSE scholar</i> </p>
+</section>
+
+<section id="skills">
+    <h2 style="font-size: xx-large; text-shadow: 2px 2px 5px rgb(24, 24, 24);"><i>Skills</i></h2>
+    <p style="font-size: x-large;"><i>TECHNICAL: <br>
+               Languages: C   HTML    CSS
+    </i></p>
+</section>
+
+<section id="blog">
+    <h2 style="font-size: xx-large; text-shadow: 2px 2px 5px black">Blog</h2>
+    <div class="blog">
+      <h3 style="font-size: x-large; font-weight: bold;">Check out my personal blogs.
+        <br>
+        <h3 style="font-size:larger;font-weight:bold;"><i>Click on this link below.</i></h3>
+          <a href="blogexp.html" target="_blank">MY BLOG SECTION</a>
+      </h3>
+  </div>
+</section>
+
+<section id="contact">
+    <h2 style="font-size: xx-large; text-shadow: 2px 2px 5px black;">Contact</h2>
+    <p style="font-size: x-large;">Explore more of me at: </p>
+    <!-- Add your social icons with links -->
+    <a href="https://github.com/Shivam220805" target="_blank">
+      <i class="bx bxl-github"></i> GitHub
+  </a>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-dfz+q82s9WT/BckR6G0vqD56W6E/BThRQ8SODvjNddz2Pd6LywE9JOMYqCmkRcdQ" crossorigin="anonymous"> -->
+
+    <a href="mailto:someone@example.com">
+      <i class="bx bxs-envelope"></i> Email
+    </a>
+</section>
+<h2 style="font-weight:bolder;text-align:center;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">HYPERLINK</h2> <br>
+  <p style="font-family:cursive;text-align:center;font-size: xx-large;"><i>Check out my coding skills:</i></p>
+  <a style="margin-left:45%;" href="hyperhello.c" target="_blank"><i>HELLO WORLD</i></a>
+</body>
+<script>
+    let darkMode = false;
+
+    function toggleDarkMode()  {
+        const icon = document.getElementById('darkModeIcon');
+        const button = document.getElementById('darkModeButton');
+
+        darkMode = !darkMode;
+
+        if (darkMode) {
+            icon.innerHTML = '🌙';
+            document.body.classList.add('dark-mode');
+        } 
+        else {
+            icon.innerHTML = '☀️';
+            document.body.classList.remove('dark-mode');
+        }
+     }
+</script>
+
+</body>
+</html>

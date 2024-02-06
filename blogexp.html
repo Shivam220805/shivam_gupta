@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      @import url('https://fonts.googleapis.com/css?family=Corben:700');
+
+h1 {
+   font-family: 'Corben', cursive;
+   font-size: 6rem;
+   color: white;
+   letter-spacing: 0.1rem;
+   text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.66);
+}
+
+.blogpage {
+   background-image: radial-gradient(50% 176%, #253854 80%, #061922 100%);
+   min-height: 30rem;
+   position: relative;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+}
+
+.blog__content {
+   position: relative;
+   align-self: center;
+   padding: 3rem 0;
+}
+
+.snow {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   pointer-events: none;
+   z-index: 1000;
+}
+
+.snowflake {
+   position: absolute;
+   background: #fff;
+   border-radius: 50%;
+   pointer-events: none;
+   animation: fall linear infinite;
+}
+
+@keyframes fall {
+   0% {
+      transform: translateY(-100vh);
+   }
+   100% {
+      transform: translateY(100vh);
+   }
+}
+
+.snowflake:nth-child(1) {
+   left: 10%;
+   animation-duration: 10s;
+}
+
+.snowflake:nth-child(2) {
+   left: 20%;
+   animation-duration: 15s;
+}
+
+.snowflake:nth-child(3) {
+   left: 30%;
+   animation-duration: 12s;
+}
+
+.container {
+   display: flex;
+   flex-wrap: wrap;
+   width: 100%;
+   margin-top: 10%;
+   background-color: aqua;
+}
+
+#blog1,
+#blog2 {
+   outline: 1px solid grey;
+   text-shadow: 2px 2px 2px 5px solid black;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   width: 100%; /* Full width on small screens */
+   min-width: 400px;
+   border: 2px greenyellow;
+   background-image: linear-gradient(to bottom left, yellow, pink, red);
+   margin-bottom: 20px; /* Add some spacing between blogs */
+}
+
+/* Responsive Styles */
+@media screen and (min-width: 768px) {
+   #blog1,
+   #blog2 {
+      width: 48%; /* Two columns on medium screens */
+   }
+}
+
+input {
+   padding: 10px;
+   margin: 20px;
+}
+
+#renderComment1,
+#renderComment2 {
+   margin: 20px 0px;
+}
+
+   </style>
+</head>
+
+<body style="background-color: aqua;">
+   <div class="blogpage">
+      <div class="blog__content">
+         <h1>Welcome to My Blogs</h1>
+      </div>
+      <div class="snow">
+         <div class="snowflake"></div>
+         <div class="snowflake"></div>
+         <div class="snowflake"></div>
+      </div>
+   </div>
+
+   <div class="container">
+      <div id="blog1">
+         <p style="font-weight:bolder;font-size:xx-large"><i>Title: Exploring the Wonders of Generative AI <br> <br>
+       In recent years, the field of Artificial Intelligence (AI) has witnessed significant advancements, and one of the most fascinating areas within AI is Generative AI. This technology has the power to create, innovate, and inspire, bringing a new dimension to how machines can mimic and even enhance human creativity.</i></p>
+         <p id="likeDisplay1">0</p>
+         <button style="font-weight:bolder;" id="likeCount1">Like</button>
+         <button style="font-weight:bolder;" id="dislikeCount1">Dislike</button>
+         <input type="text" id="commentText1" />
+         <button style="font-weight:bolder;" id="comment1">Comment</button>
+         <div id="renderComment1"></div>
+      </div>
+      <div id="blog2">
+         <p style="font-weight:bolder;font-size:xx-large"><i>Title: Unmasking the Silent Epidemic: Deteriorating Mental Health in a Fast-Paced World <br> <br>
+            In the hustle and bustle of modern life, where technological advancements and societal expectations continue to rise, a silent epidemic is gripping individuals across the globe – deteriorating mental health. Beyond the facade of success and achievement often portrayed on social media, many silently grapple with the challenges that can erode their mental well-being. This blog explores the factors contributing to the decline in mental health, its impact on individuals, and the importance of fostering a culture of empathy and support.</i></p>
+         <p id="likeDisplay2">0</p>
+         <button id="likeCount2">Like</button>
+         <button id="dislikeCount2">Dislike</button>
+         <input type="text" id="commentText2" />
+         <button id="comment2">Comment</button>
+         <div id="renderComment2"></div>
+      </div>
+   </div>
+</body>
+<script>
+
+
+   const likeDisplay1 = document.querySelector("#likeDisplay1");
+
+   const likeDisplay2 = document.querySelector("#likeDisplay2");
+
+   const commentText1 = document.querySelector("#commentText1");
+
+   const commentText2 = document.querySelector("#commentText2");
+
+   const render1 = document.querySelector("#renderComment1");
+
+   const render2 = document.querySelector("#renderComment2");
+
+
+   let count1 = 0;
+
+   let count2 = 0;
+
+
+   document.querySelector("#likeCount1").addEventListener("click", () => {
+
+       count1++;
+
+       likeDisplay1.innerText = count1;
+
+   });
+
+   document.querySelector("#dislikeCount1").addEventListener("click", () => {
+       
+        if(count1>0){
+
+            count1--;
+        }
+
+       likeDisplay1.innerText = count1;
+
+   });
+
+   document.querySelector("#likeCount2").addEventListener("click", () => {
+
+       count2++;
+
+       likeDisplay2.innerText = count2;
+
+   });
+
+   document.querySelector("#dislikeCount2").addEventListener("click", () => {
+       
+       if(count2>0){
+
+           count2--;
+       }
+
+      likeDisplay2.innerText = count2;
+
+  });
+
+   document.querySelector("#comment1").addEventListener("click", () => {
+
+       let comment = commentText1.value;
+
+       if (comment != "") {
+
+           let p = document.createElement("p");
+
+           p.innerText = comment;
+
+           render1.append(p);
+
+           commentText1.value = "";
+
+       }
+
+   })
+
+   document.querySelector("#comment2").addEventListener("click", () => {
+
+       let comment = commentText2.value;
+
+       if (comment != "") {
+
+           let p = document.createElement("p");
+
+           p.innerText = comment;
+
+           render2.append(p);
+
+           commentText2.value = "";
+
+       }
+
+   }
+   )
+</script>
+
+</html>
